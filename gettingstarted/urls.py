@@ -16,7 +16,7 @@ import hello.views
 
 urlpatterns = [
     path("", hello.views.index, name="index"),
-	path("^submit$", hello.views.submit, name='submit'),
+	path("^submit/$", hello.views.submit, name='submit'),
 	path("query", hello.views.query, name='query'),
     path("db/", hello.views.db, name="db"),
     path("admin/", admin.site.urls),
