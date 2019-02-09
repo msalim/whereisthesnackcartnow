@@ -24,10 +24,7 @@ def query(request):
 	latitude = latlong.latitude
 	longitude = latlong.longitude
 
-	response = HttpResponse()
-	response.status_code = 200
-	response.content = "The food cart is last spotted at https://www.google.com/maps/search/?api=1&query=%s,%s" % (latitude, longitude)
-	response.write = "The food cart is last spotted at https://www.google.com/maps/search/?api=1&query=%s,%s" % (latitude, longitude)
+	return HttpResponse("The food cart is last spotted at https://www.google.com/maps/search/?api=1&query=%s,%s" % (latitude, longitude), status=200)
 	
 	return render(request, "query.html", {"latitude": latitude, "longitude": longitude})
 
