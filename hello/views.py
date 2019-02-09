@@ -24,8 +24,7 @@ def query(request):
 	latlong = Latlong.objects.order_by('-id')[0]
 	latitude = latlong.latitude
 	longitude = latlong.longitude
-	return Response(data="The food cart is last spotted at https://www.google.com/maps/search/?api=1&query=%s,%s!" % (latitude, longitude), status=status.HTTP_200_OK) 
-	return HttpResponse("The food cart is last spotted at https://www.google.com/maps/search/?api=1&query=%s,%s" % (latitude, longitude), status=200)
+	return HttpResponse(content="The food cart is last spotted at https://www.google.com/maps/search/?api=1&query=%s,%s" % (latitude, longitude), status=200)
 	
 	return render(request, "query.html", {"latitude": latitude, "longitude": longitude})
 
