@@ -23,7 +23,7 @@ def query(request):
 	latlong = Latlong.objects.order_by('-id')[0]
 	latitude = latlong["latitude"]
 	longitude = latlong["longitude"]
-	return render(request, "query.html", {"latitude" = latitude, "longitude" = longitude})
+	return render(request, "query.html", {"latitude": latitude, "longitude": longitude})
 
 def submit(request):
 	latitude = request.GET("lat")
