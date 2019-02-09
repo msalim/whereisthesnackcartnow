@@ -25,9 +25,7 @@ def query(request):
 	longitude = latlong["longitude"]
 	return render(request, "query.html", {"latitude": latitude, "longitude": longitude})
 
-def submit(request):
-	latitude = request.GET.get("lat")
-	longitude = request.GET.get("lon")
+def submit(request, latitude = "0", longitude = "0"):
 	latlong = Latlong()
 	latlong.latitude = latitude
 	latlong.longitude = longitude
