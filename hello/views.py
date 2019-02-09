@@ -21,8 +21,8 @@ def db(request):
 
 def query(request):
 	latlong = Latlong.objects.order_by('-id')[0]
-	latitude = latlong["latitude"]
-	longitude = latlong["longitude"]
+	latitude = latlong.latitude
+	longitude = latlong.longitude
 	return render(request, "query.html", {"latitude": latitude, "longitude": longitude})
 
 def submit(request, latitude = "0", longitude = "0"):
