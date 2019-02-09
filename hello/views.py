@@ -20,7 +20,7 @@ def db(request):
     return render(request, "db.html", {"greetings": greetings})
 
 def query(request):
-	return HttpResponse(status=200)
+	return "The food cart is last spotted at https://www.google.com/maps/search/?api=1&query=%s,%s!" % (latitude, longitude)
 	latlong = Latlong.objects.order_by('-id')[0]
 	latitude = latlong.latitude
 	longitude = latlong.longitude
