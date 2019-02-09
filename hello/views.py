@@ -31,4 +31,4 @@ def submit(request, latitude = "0", longitude = "0"):
 	latlong.longitude = longitude
 	latlong.save()
 
-	return
+	return render(request, "empty.html")
