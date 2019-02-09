@@ -23,6 +23,12 @@ def query(request):
 	latlong = Latlong.objects.order_by('-id')[0]
 	latitude = latlong.latitude
 	longitude = latlong.longitude
+
+	response = HttpResponse()
+	response.status_code = 200
+	response.content = "The food cart is last spotted at https://www.google.com/maps/search/?api=1&query=%s,%s" % (latitude, longitude)
+	response.write = "The food cart is last spotted at https://www.google.com/maps/search/?api=1&query=%s,%s" % (latitude, longitude)
+	
 	return render(request, "query.html", {"latitude": latitude, "longitude": longitude})
 
 def submit(request, latitude = "0", longitude = "0"):
