@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from .models import Greeting
@@ -23,9 +23,7 @@ def query(request):
 	latlong = Latlong.objects.order_by('-id')[0]
 	latitude = latlong.latitude
 	longitude = latlong.longitude
-	return HttpResponse(content="The food cart is last spotted <a href=https://www.google.com/maps/search/?api=1&query=%s,%s>here</a>!" % (latitude, longitude), status=200)
-	
-	return render(request, "query.html", {"latitude": latitude, "longitude": longitude})
+	return redirect("https://www.google.com/maps/search/?api=1&query=%s,%s" % (latitude, longitude))
 
 def submit(request, latitude = "0", longitude = "0"):
 	latlong = Latlong()
